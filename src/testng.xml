@@ -1,0 +1,36 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="MainSuite" parallel="tests">
+    <test name="tests.MainTestsChrome" parallel="methods" thread-count="3">
+        <parameter name="browser" value="chrome"/>
+            <classes>
+                <class name="tests.HomePageElementsTest">
+                    <methods>
+                        <include name="checkSearchByWord"/>
+                        <include name="checkChangeCityButton"/>
+                    </methods>
+                </class>
+                <class name="tests.AddToCartTest">
+                    <methods>
+                        <include name="checkAddProdToCartByMenu"/>
+                    </methods>
+                </class>
+            </classes>
+    </test>
+    <test name="tests.MainTestsFirefox" parallel="methods" thread-count="3">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.HomePageElementsTest">
+                <methods>
+                    <include name="checkSearchByWord"/>
+                    <include name="checkChangeCityButton"/>
+                </methods>
+            </class>
+            <class name="tests.AddToCartTest">
+                <methods>
+                    <include name="checkAddProdToCartByMenu"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
